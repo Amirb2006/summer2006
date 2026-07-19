@@ -1,2 +1,3 @@
 # summer2006
-my EE learning journey
+My EE learning journey
+
