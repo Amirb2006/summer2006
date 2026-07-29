@@ -9,8 +9,12 @@ v_filtered = []
 for i in range(2, len(v_noisy)):
     # Take the average of current point and the 2 points before it
     avg = (v_noisy[i-2] + v_noisy[i-1] + v_noisy[i]) / 3
-    v_filtered = np.append(v_filtered, avg) #discreption for append
+    v_filtered.append(avg) #description for append
 
+#np.append is so inefficent so we use list.append which is faster than we convert
+# the list into an array using np.array()
+
+v_filtered = np.array(v_filtered)  # Convert the list back to a NumPy array for easier handling
 
 print("Original:", v_noisy)
 print("Filtered:", v_filtered)
