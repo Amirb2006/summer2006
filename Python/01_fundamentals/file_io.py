@@ -51,3 +51,29 @@ with open("telemetry.csv", "r") as f:
 
 print("Extracted Voltages:", volts)  # Output: [0.12, 1.45, 3.2, 4.95]
 
+#----------------------------------------------------------------------------------------
+
+with open("temperature_log.txt","r") as file:
+    temperature_log = file.readlines()
+    for i in range(len(temperature_log)):
+        temperature_log[i] = temperature_log[i].strip()
+        temperature_log[i] = float(temperature_log[i])
+
+
+#length of the temperature log
+temperature_length = len(temperature_log)
+
+#maximum temperature
+max_temperature = max(temperature_log)
+
+#minimum temperature
+min_temperature = min(temperature_log)
+
+#average temperature
+average_temperature = sum(temperature_log) / temperature_length
+
+with open("summary.txt", "w") as file:
+    file.write(f"number of samples: {temperature_length}\n")
+    file.write(f"maximum temperature: {max_temperature}\n")
+    file.write(f"minimum temperature: {min_temperature}\n")
+    file.write(f"average temperature: {average_temperature}\n")
